@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/msheeq99/oop-team-profile#readme",
   "dependencies": {
+    "inquirer": "^8.2.4",
     "jest": "^29.4.0"
   }
 }
