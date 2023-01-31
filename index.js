@@ -81,10 +81,83 @@ const questions = () => {
 };
 
 
-  questions();
- 
+const addEmployee = (data) => {
+    if(data === 'Add Engineer') {
+        return inquirer.prompt([
+            {
+                type: `input`,
+                name: `name`,
+                message: `What is the engineer's name?(Required)`,
+                validate: nameInput => {
+                    if(nameInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's name!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `id`,
+                message: `What is the engineer's id?(Required)`,
+                validate: idInput => {
+                    if(idInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's id!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `email`,
+                message: `What is the engineer's email?(Required)`,
+                validate: emailInput => {
+                    if(emailInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's email!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `github`,
+                message: `What is the engineer's GitHub username?(Required)`,
+                validate: githubInput => {
+                    if(githubInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's GitHub username!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `list`,
+                name: `extraEmployee`,
+                message: `Would you like to add another employee?`,
+                choices: ['Add Engineer', 'Add Intern', 'Finish building my team']
+            }
+        ])
+        .then(data => {
+            const { name, id, email, github, extraEmployee } = data;
+            const engineer = new Engineer(name, id, email, github);
 
+            employees.push(engineer);
 
+            addEmployee(extraEmployee);
+        })
+    }
+};
+
+questions()
+.then(data => {
+    addEmployee(data)
+})
 //   if (answers.role === async, "Manager") {
 //     const managerAns = await inquirer
 //       .prompt([
