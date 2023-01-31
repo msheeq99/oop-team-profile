@@ -152,12 +152,86 @@ const addEmployee = (data) => {
             addEmployee(extraEmployee);
         })
     }
+
+    else if (data === 'Add Intern') {
+        return inquirer.prompt([
+            {
+                type: `input`,
+                name: `name`,
+                message: `What is the intern's name?(Required)`,
+                validate: nameInput => {
+                    if(nameInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's name!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `id`,
+                message: `What is the intern's id?(Required)`,
+                validate: idInput => {
+                    if(idInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's id!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `email`,
+                message: `What is the intern's email?(Required)`,
+                validate: emailInput => {
+                    if(emailInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's email!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `input`,
+                name: `school`,
+                message: `What is the intern's school name?(Required)`,
+                validate: schoolInput => {
+                    if(schoolInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's school name!`);
+                        return false;
+                    }
+                }
+            },
+            {
+                type: `list`,
+                name: `extraEmployee`,
+                message: `Would you like to add another employee?`,
+                choices: ['Add Engineer', 'Add Intern', 'Finish building my team']
+            }
+        ])
+        .then(data => {
+            const { name, id, email, school, extraEmployee } = data;
+            const intern = new Intern(name, id, email, school);
+
+            employees.push(intern);
+
+            addEmployee(extraEmployee);
+        })
+    } 
 };
+
+
+
 
 questions()
 .then(data => {
     addEmployee(data)
-})
+});
 //   if (answers.role === async, "Manager") {
 //     const managerAns = await inquirer
 //       .prompt([
