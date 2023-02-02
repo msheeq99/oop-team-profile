@@ -4,18 +4,19 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const employees = [];
+const src = require("./src/page-template");
 
 
-const newStaffMemberData = [];
 
-const questions = () => {
+
+const questions = (data) => {
     return inquirer.prompt([
         {
             type: `input`,
             name: `name`,
             message: `What is the team manager's name?(Required)`,
-            validate: nameInput => {
-                if(nameInput) {
+            validate: name => {
+                if(name) {
                     return true;
                 } else {
                     console.log(`Please enter the team manager's name!`);
@@ -25,10 +26,10 @@ const questions = () => {
         },
         {
             type: `input`,
-            name: `i6d`,
+            name: `id`,
             message: `What is the team manager's id?(Required)`,
-            validate: idInput => {
-                if(idInput) {
+            validate: id => {
+                if(id) {
                     return true;
                 } else {
                     console.log(`Please enter the team manager's id!`);
@@ -40,8 +41,8 @@ const questions = () => {
             type: `input`,
             name: `email`,
             message: `What is the team manager's email?(Required)`,
-            validate: emailInput => {
-                if(emailInput) {
+            validate: email => {
+                if(email) {
                     return true;
                 } else {
                     console.log(`Please enter the team manager's email!`);
@@ -53,8 +54,8 @@ const questions = () => {
             type: `input`,
             name: `office`,
             message: `What is the team manager's office number?(Required)`,
-            validate: officeInput => {
-                if(officeInput) {
+            validate: office => {
+                if(office) {
                     return true;
                 } else {
                     console.log(`Please enter the team manager's office number!`);
@@ -71,8 +72,8 @@ const questions = () => {
         
     ])
     .then(data => {
-        const { name, id, email, officeNumber, extraEmployee } = data;
-        const manager = new Manager(name, id, email, officeNumber);
+        const { name, id, email, office, extraEmployee } = data;
+        const manager = new Manager(name, id, email, office);
 
         employees.push(manager);
 
@@ -88,8 +89,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `name`,
                 message: `What is the engineer's name?(Required)`,
-                validate: nameInput => {
-                    if(nameInput) {
+                validate: name => {
+                    if(name) {
                         return true;
                     } else {
                         console.log(`Please enter the engineer's name!`);
@@ -101,8 +102,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `id`,
                 message: `What is the engineer's id?(Required)`,
-                validate: idInput => {
-                    if(idInput) {
+                validate: id => {
+                    if(id) {
                         return true;
                     } else {
                         console.log(`Please enter the engineer's id!`);
@@ -114,8 +115,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `email`,
                 message: `What is the engineer's email?(Required)`,
-                validate: emailInput => {
-                    if(emailInput) {
+                validate: email => {
+                    if(email) {
                         return true;
                     } else {
                         console.log(`Please enter the engineer's email!`);
@@ -127,8 +128,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `github`,
                 message: `What is the engineer's GitHub username?(Required)`,
-                validate: githubInput => {
-                    if(githubInput) {
+                validate: github => {
+                    if(github) {
                         return true;
                     } else {
                         console.log(`Please enter the engineer's GitHub username!`);
@@ -148,6 +149,7 @@ const addEmployee = (data) => {
             const engineer = new Engineer(name, id, email, github);
 
             employees.push(engineer);
+            console.log("After add employee", employees)
 
             addEmployee(extraEmployee);
         })
@@ -159,8 +161,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `name`,
                 message: `What is the intern's name?(Required)`,
-                validate: nameInput => {
-                    if(nameInput) {
+                validate: name => {
+                    if(name) {
                         return true;
                     } else {
                         console.log(`Please enter the intern's name!`);
@@ -172,8 +174,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `id`,
                 message: `What is the intern's id?(Required)`,
-                validate: idInput => {
-                    if(idInput) {
+                validate: id => {
+                    if(id) {
                         return true;
                     } else {
                         console.log(`Please enter the intern's id!`);
@@ -185,8 +187,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `email`,
                 message: `What is the intern's email?(Required)`,
-                validate: emailInput => {
-                    if(emailInput) {
+                validate: email => {
+                    if(email) {
                         return true;
                     } else {
                         console.log(`Please enter the intern's email!`);
@@ -198,8 +200,8 @@ const addEmployee = (data) => {
                 type: `input`,
                 name: `school`,
                 message: `What is the intern's school name?(Required)`,
-                validate: schoolInput => {
-                    if(schoolInput) {
+                validate: school => {
+                    if(school) {
                         return true;
                     } else {
                         console.log(`Please enter the intern's school name!`);
@@ -218,55 +220,31 @@ const addEmployee = (data) => {
             const { name, id, email, school, extraEmployee } = data;
             const intern = new Intern(name, id, email, school);
 
+
             employees.push(intern);
+            console.log("After adding intern", employees)
 
             addEmployee(extraEmployee);
+            
         })
-    } 
+    }
+    
+    if (data === 'Finish building my team') {
+        console.log("lolol");
+       src(employees);
+              
+    }
+    console.log("Team done!")
+
 };
 
-
-
-
 questions()
-.then(data => {
-    addEmployee(data)
-});
-//   if (answers.role === async, "Manager") {
-//     const managerAns = await inquirer
-//       .prompt([
-//         {
-//           type: "input",
-//           message: "What is your office number",
-//           name: "officeNumber",
-//         },
-//       ])
-//       const newManager = new Manager(
-//         answers.name,
-//         answers.id,
-//         answers.email,
-//         managerAns.officeNumber
-//       );
-//       newStaffMemberData.push(newManager);
+  .then(data => {
+      addEmployee(data)
+  })
+  .catch(err => {
+      console.log(err);
+  });
 
-//     } else if (answers.role === "Engineer") {
-//         const githubAns = await inquirer
-//           .prompt([
-//             {
-//               type: "input",
-//               message: "What is your GitHub user name?",
-//               name: "github",
-//             }
-//           ])
-//             const newEngineer = new Engineer(
-//               answers.name,
-//               answers.id,
-//               answers.email,
-//               githubAns.github
-//             );
-//             newStaffMemberData.push(newEngineer);
-          
-
-//       };
 
 
