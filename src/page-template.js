@@ -1,7 +1,12 @@
+const manager = require("../lib/Manager");
+const engineer = require("../lib/Engineer");
+const intern = require("../lib/Intern");
+
 // create the team
+
 const generateTeam = (team) => {
-    console.log(team)
     
+
     // create the manager html
     
     const generateManager = (manager) => {
@@ -22,8 +27,74 @@ const generateTeam = (team) => {
           `;
     };
   
+    // create the html for engineers
+  const generateEngineer = (engineer) => {
+    return `
+        <div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">${engineer.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${engineer.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+        </ul>
+    </div>
+</div>
+        `;
+  };
 
-    console.log(team);
+  // create the html for interns
+  const generateIntern = (intern) => {
+    return `
+        <div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">${intern.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
+        </ul>
+    </div>
+</div>
+        `;
+
+
+        
+  };
+
+let employeeArray = ""
+// for each team member in the team array
+ team.forEach(element => {
+    
+    console.log(element instanceof intern);
+    if(element instanceof intern) {
+      employeeArray += generateIntern(element)
+    };
+
+    console.log(element instanceof manager);
+    if(element instanceof manager) {
+       generateManager(element);
+       employeeArray += generateManager(element)
+    };
+
+    console.log(element instanceof engineer);
+    if(element instanceof engineer) {
+       generateEngineer(element);
+       employeeArray += generateEngineer(element)
+    };
+    console.log(employeeArray);    
+
+ });   
+
+  
+
+    
 };
-
+fs.writeFile("./index.html",    i   file, ()=>{console.log(READMEfile)});
 module.exports = generateTeam;

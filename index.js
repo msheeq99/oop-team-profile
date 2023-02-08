@@ -149,7 +149,7 @@ const addEmployee = (data) => {
             const engineer = new Engineer(name, id, email, github);
 
             employees.push(engineer);
-            console.log("After add employee", employees)
+           
 
             addEmployee(extraEmployee);
         })
@@ -222,7 +222,7 @@ const addEmployee = (data) => {
 
 
             employees.push(intern);
-            console.log("After adding intern", employees)
+            
 
             addEmployee(extraEmployee);
             
@@ -230,17 +230,21 @@ const addEmployee = (data) => {
     }
     
     if (data === 'Finish building my team') {
-        console.log("lolol");
+        
+        
        src(employees);
-              
+       
+
     }
     console.log("Team done!")
+    
 
 };
 
 questions()
   .then(data => {
       addEmployee(data)
+     
   })
   .catch(err => {
       console.log(err);
