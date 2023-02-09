@@ -1,4 +1,4 @@
-# 10 
+# 10 Object-Oriented Programming: Team Profile Generator
 
 ## Summary
 
@@ -32,6 +32,7 @@ Clicking on a Github username open the profile in a new tab.
 ## Mockup of Sample Html
 ![scrnli_09_02_2023_22-55-43](https://user-images.githubusercontent.com/113865888/217957617-03ebb5a8-73f9-459f-9b82-a5b0ff23f312.png)
 
-Please check out this video of the tests being run -
+Please check out this video of the tests being run - [scrnli_09_02_2023_23-11-05.webm](https://user-images.githubusercontent.com/113865888/217959737-6d95d113-af46-4f91-ba07-3bd07c233e7b.webm)
+
 
 Please check out this video of the application in action - [scrnli_09_02_2023_23-06-08.webm](https://user-images.githubusercontent.com/113865888/217959090-72d9bdbe-1866-400d-a142-4aa89770788d.webm)
