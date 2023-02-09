@@ -30,6 +30,7 @@ Clicking on a team member's email opens in the user's default email programme.
 Clicking on a Github username open the profile in a new tab.
 
 ## Mockup of Sample Html
-![image](https://user-images.githubusercontent.com/113865888/217955554-0fe167af-7b25-4fea-a385-abfeb11f69bd.png)
+![scrnli_09_02_2023_22-41-53](https://user-images.githubusercontent.com/113865888/217955713-85126139-7473-49ce-941d-12162e11946f.png)
+
 
 Please check out this video of the application in action - 
