@@ -70,32 +70,32 @@ const generateTeam = (team) => {
         
   };
 
-let employeeArray = ""
+let employeeHtmlString = ""
 
 // for each team member in the team array
  team.forEach((element) => {
    
-    console.log(element instanceof intern);
+    
     if(element instanceof intern) {
-      employeeArray += generateIntern(element)
+      employeeHtmlString += generateIntern(element)
     };
 
-    console.log(element instanceof manager);
+    
     if(element instanceof manager) {
        
-       employeeArray += generateManager(element)
+       employeeHtmlString += generateManager(element)
     };
 
-    console.log(element instanceof engineer);
+    
     if(element instanceof engineer) {
        
-       employeeArray += generateEngineer(element)
+       employeeHtmlString += generateEngineer(element)
     };
-    console.log(employeeArray);
+    
     
     
  });   
- 
+ return employeeHtmlString;
 };
  
 
