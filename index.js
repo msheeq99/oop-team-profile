@@ -1,12 +1,13 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
+
+const inquirer = require("inquirer");
+const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const employees = [];
 const src = require("./src/page-template");
-
-
+const generateTeam = require("./src/page-template")
+const employeeArray = "";
 
 
 const questions = (data) => {
@@ -233,11 +234,19 @@ const addEmployee = (data) => {
         
         
        src(employees);
-       
+       return createTeam();
 
     }
     console.log("Team done!")
     
+    function createTeam () {
+        console.log(employeeArray);
+        console.log("new guy")
+        fs.writeFileSync(
+          "./dist/index.html", 
+          generateTeam(employeeArray),
+          "utf-8"
+        )};
 
 };
 

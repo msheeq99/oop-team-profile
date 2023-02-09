@@ -1,6 +1,8 @@
 const manager = require("../lib/Manager");
 const engineer = require("../lib/Engineer");
 const intern = require("../lib/Intern");
+const fs = require("fs");
+
 
 // create the team
 
@@ -69,9 +71,10 @@ const generateTeam = (team) => {
   };
 
 let employeeArray = ""
+
 // for each team member in the team array
- team.forEach(element => {
-    
+ team.forEach((element) => {
+   
     console.log(element instanceof intern);
     if(element instanceof intern) {
       employeeArray += generateIntern(element)
@@ -79,22 +82,27 @@ let employeeArray = ""
 
     console.log(element instanceof manager);
     if(element instanceof manager) {
-       generateManager(element);
+       
        employeeArray += generateManager(element)
     };
 
     console.log(element instanceof engineer);
     if(element instanceof engineer) {
-       generateEngineer(element);
+       
        employeeArray += generateEngineer(element)
     };
-    console.log(employeeArray);    
-
- });   
-
-  
-
+    console.log(employeeArray);
     
+    
+ });   
+ 
 };
-fs.writeFile("./index.html",    i   file, ()=>{console.log(READMEfile)});
+ 
+
+   
+  
+    
+
+
+
 module.exports = generateTeam;
