@@ -1,4 +1,4 @@
-# 12 SQL: Employee Tracker
+# 10 
 
 ## Summary
 
@@ -32,5 +32,7 @@ Clicking on a Github username open the profile in a new tab.
 ## Mockup of Sample Html
 ![scrnli_09_02_2023_22-55-43](https://user-images.githubusercontent.com/113865888/217957617-03ebb5a8-73f9-459f-9b82-a5b0ff23f312.png)
 
+Please check out this video of the tests being run -
 
-Please check out this video of the application in action - 
+Please check out this video of the application in action - ![scrnli_09_02_2023_22-55-43](https://user-images.githubusercontent.com/113865888/217957617-03ebb5a8-73f9-459f-9b82-a5b0ff23f312.png)
+
